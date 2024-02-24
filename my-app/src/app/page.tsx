@@ -1,14 +1,13 @@
 import Image from "next/image";
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { Button } from "flowbite-react";
-import AboutButton from './components/AboutButton';
+import AboutButton from "./components/AboutButton";
 import MainTitle from "./components/MainTitle";
 import type { NextPage } from "next";
 import Head from "next/head";
 import InputBar from "./components/InputBar";
 import InputBarParent from "./components/InputBarParent";
-
 
 export default function Home() {
   return (
@@ -33,20 +32,18 @@ export default function Home() {
       */}
       <div>
         <main className="p-8">
-          <InputBarParent/>
+          <InputBarParent />
         </main>
       </div>
 
       <div>
-      <AboutButton />
-    </div>
-
-      
+        <AboutButton />
+      </div>
 
       {/*
           background
       */}
-      <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(173,216,230,.5)_100%)]"></div>
+      <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#ababab]"></div>
     </main>
   );
 }
