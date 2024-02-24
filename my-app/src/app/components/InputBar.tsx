@@ -1,12 +1,12 @@
 'use client'
 import React, { useState, ChangeEvent } from "react";
 
-const InputBar: React.FC<{ placeholder?: string }> = ({ placeholder }) => {
-  //inputValue is what the user gives us
+const InputBar: React.FC<{ placeholder?: string; onUpdate?: (value: string) => void }> = ({ placeholder, onUpdate }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    onUpdate?.(event.target.value); // Call the parent's update function if provided
   };
 
   return (
