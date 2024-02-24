@@ -1,10 +1,13 @@
 import Image from "next/image";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Button } from "flowbite-react";
+import AboutButton from './components/AboutButton';
 import MainTitle from "./components/MainTitle";
 import type { NextPage } from "next";
 import Head from "next/head";
 import InputBar from "./components/InputBar";
-
+import InputBarParent from "./components/InputBarParent";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -29,8 +32,13 @@ export default function Home() {
       <div>
         <main className="p-8">
           <InputBar placeholder="keywords:" />
+          <InputBarParent/>
         </main>
       </div>
+
+      <div>
+      <AboutButton />
+    </div>
 
       <div className="mb-32 mx-auto lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <div className="grid-place-items-center">
