@@ -26,7 +26,9 @@ const InputBarParent: React.FC = () => {
   return (
     <div style={{ display: "flex", alignItems: "flex-start" }}>
       <InputBar placeholder="Keywords:" onUpdate={setInputValue} />
-        <Go />
+      <div style={{ marginLeft: "8px" }}>
+      <Go />
+      </div>
     </div>
   );
 };
