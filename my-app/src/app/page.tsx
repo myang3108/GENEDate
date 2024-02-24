@@ -8,6 +8,11 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import InputBar from "./components/InputBar";
 import InputBarParent from "./components/InputBarParent";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Link from 'next/link';
+import aboutus from "./pages/aboutus";
+import { useCallback } from "react";
+import go from "./components/go";
 
 export default function Home() {
   return (
@@ -42,10 +47,17 @@ export default function Home() {
       </div>
       </div>
 
+      <div>
+      <div className="fixed top-0 right-0 p-7">
+        <go />
+      </div>
+      </div>
+
       {/*
           background
       */}
       <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#1a1a1a]"></div>
     </main>
+    
   );
 }
