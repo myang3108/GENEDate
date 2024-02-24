@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Button } from "flowbite-react";
 import AboutButton from "./components/AboutButton";
+import Go from "./components/go";
 import MainTitle from "./components/MainTitle";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -12,7 +14,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Link from 'next/link';
 import aboutus from "./pages/aboutus";
 import { useCallback } from "react";
-import go from "./components/go";
+import LinksPage from "./pages/page";
 
 export default function Home() {
   return (
@@ -47,11 +49,15 @@ export default function Home() {
       </div>
       </div>
 
-      <div>
-      <div className="fixed top-0 right-0 p-7">
-        <go />
-      </div>
-      </div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/links" Component={LinksPage} />
+        {/* Other routes */}
+      </Routes>
+    </BrowserRouter>
+
+
+
 
       {/*
           background

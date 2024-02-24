@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import InputBar from "./InputBar";
 import axios from "axios";
+import Go from "./go";
 
 const InputBarParent: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -23,16 +24,12 @@ const InputBarParent: React.FC = () => {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", alignItems: "flex-start" }}>
       <InputBar placeholder="Keywords:" onUpdate={setInputValue} />
-      <button
-        onClick={handleButtonClick}
-        className="text-[#1a1a1a] bg-gradient-to-r from-[#FFBBBB] to-[#A9F1DF] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-      >
-        GO!
-      </button>
+        <Go />
     </div>
   );
 };
+
 
 export default InputBarParent;
