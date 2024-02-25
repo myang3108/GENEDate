@@ -65,7 +65,7 @@ const ClassInfoPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
+    <div className="p-5 bg-[#1a1a1a] min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-bold text-gray-900">
