@@ -18,7 +18,7 @@ const InputBar: React.FC<{
       placeholder={placeholder}
       value={inputValue}
       onChange={handleChange}
-      className="w-full p-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black-500 focus:border-transparent"
+      className="w-full p-4 border border-[#DEDEDE] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black-500 focus:border-transparent"
     />
   );
 };

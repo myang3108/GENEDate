@@ -39,7 +39,7 @@ export default function Home() {
           input field
       */}
       <div>
-        <main className="mb-8 p-7">
+        <main className="mb-5 p-10">
           <InputBarParent />
         </main>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BackButton from "../components/BackButton";
 
 type ClassInfo = {
   name: string;
@@ -18,7 +19,7 @@ type ClassInfo = {
 const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
   return (
     <div className="m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#EA8D8D] to-[#A890FE] shadow-lg">
-      <div className="flex flex-col justify-between h-full p-4 rounded-lg bg-[#1a1a1a] text-white">
+      <div className="flex flex-col justify-between h-full p-6 rounded-lg bg-[#1a1a1a] text-white">
         <h2 className="text-xl font-bold mb-2">{classInfo.name}</h2>
         <p className="flex-1">{classInfo.description}</p>
         <p className="mt-2">Average GPA: {classInfo.averageGPA.toFixed(2)}</p>
@@ -27,7 +28,7 @@ const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
           href={classInfo.link}
           className="mt-4 text-blue-400 hover:text-blue-600"
         >
-          More Info
+          Click to see your peers' thoughts!
         </a>
       </div>
     </div>
@@ -68,18 +69,21 @@ const ClassInfoPage: React.FC = () => {
     <div className="p-5 bg-[#1a1a1a] min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Class Information
+        <h1 className="mb-12 text-4xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-5xl">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r to-[#A890FE] from-[#EA8D8D]">
+            (gened)ate.
+          </span>
           </h1>
-          <p className="text-gray-600">
-            Discover classes, their average GPA, and more.
-          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ClassTile key={classInfo.Class} classInfo={classInfo} />
           
         </div>
+        
       </div>
+      <div className="fixed top-0 right-0 p-7">
+          <BackButton />
+        </div>
       <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#1a1a1a]"></div>
     </div>
     
