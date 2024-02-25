@@ -2,13 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-type ClassInfo = {
+type ClassInfo2 = {
   id: number;
   name: string;
   description: string;
   averageGPA: number;
   professorName: string;
   link: string;
+};
+
+type ClassInfo = {
+  date: string;
 };
 
 const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
@@ -32,9 +36,10 @@ const ClassInfoPage: React.FC = () => {
 
   useEffect(() => {
     // Replace 'http://your-api-endpoint/classes' with the Flask endpoint
-    axios.get('http://127.0.0.1:5000/classes')
+    axios.get('/pages')
       .then(response => {
         setClassInfos(response.data);
+        console.log(response)
       })
       .catch(error => console.error("There was an error fetching the class information:", error));
   }, []);
