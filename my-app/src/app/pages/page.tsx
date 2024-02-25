@@ -1,37 +1,57 @@
-"use client";
 import React from 'react';
 
-interface LinkItem {
+type ClassInfo = {
   name: string;
-  url: string;
-}
+  description: string;
+  averageGPA: number;
+  professorName: string;
+  link: string;
+};
 
-const links: LinkItem[] = [
-  { name: 'OpenAI', url: 'https://www.openai.com' },
-  { name: 'GitHub', url: 'https://github.com' },
-  { name: 'Stack Overflow', url: 'https://stackoverflow.com' },
-  // Add more links as needed
-];
-
-const LinksPage: React.FC = () => {
+const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Links</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {links.map((link, index) => (
-          <a
-            key={index}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block p-4 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100"
-          >
-            <h2 className="text-lg font-semibold">{link.name}</h2>
-          </a>
-        ))}
-      </div>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 m-4">
+      <h2 className="font-bold text-xl mb-2">{classInfo.name}</h2>
+      <p>{classInfo.description}</p>
+      <p className="mt-2"><b>Average GPA:</b> {classInfo.averageGPA}</p>
+      <p><b>Professor:</b> {classInfo.professorName}</p>
+      <a href={classInfo.link} className="text-blue-500 hover:text-blue-700">More Info</a>
     </div>
   );
 };
 
-export default LinksPage;
+const ClassInfoPage: React.FC = () => {
+  const classInfos: ClassInfo[] = [
+    {
+      name: "Introduction to Programming",
+      description: "This course introduces the fundamentals of programming.",
+      averageGPA: 3.4,
+      professorName: "Dr. Jane Doe",
+      link: "https://example.com/class1"
+    },
+    {
+      name: "Advanced Databases",
+      description: "Explore advanced topics in database systems.",
+      averageGPA: 3.7,
+      professorName: "Prof. John Smith",
+      link: "https://example.com/class2"
+    },
+    {
+      name: "Machine Learning",
+      description: "An introductory course on machine learning algorithms and their applications.",
+      averageGPA: 3.9,
+      professorName: "Dr. Alan Turing",
+      link: "https://example.com/class3"
+    }
+  ];
+
+  return (
+    <div className="flex flex-wrap justify-center">
+      {classInfos.map((classInfo, index) => (
+        <ClassTile key={index} classInfo={classInfo} />
+      ))}
+    </div>
+  );
+};
+
+export default ClassInfoPage;
