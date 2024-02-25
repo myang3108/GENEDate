@@ -13,7 +13,7 @@ type ClassInfo = {
 
 const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
   return (
-    <div className="m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#FFBBBB] to-[#A9F1DF] shadow-lg">
+    <div className="m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#EA8D8D] to-[#A890FE] shadow-lg">
       <div className="flex flex-col justify-between h-full p-4 rounded-lg bg-[#1a1a1a] text-white">
         <h2 className="text-xl font-bold mb-2">{classInfo.name}</h2>
         <p className="flex-1">{classInfo.description}</p>
@@ -40,11 +40,10 @@ const ClassInfoPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
+    <div className="p-5 bg-[#1a1a1a] min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900">Class Information</h1>
-          <p className="text-gray-600">Discover classes, their average GPA, and more.</p>
+          <h1 className="text-3xl font-bold text-white-900">Class Information</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {classInfos.map(classInfo => (
@@ -52,6 +51,7 @@ const ClassInfoPage: React.FC = () => {
           ))}
         </div>
       </div>
+      <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#1a1a1a]"></div>
     </div>
   );
 };
