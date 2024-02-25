@@ -12,7 +12,7 @@ const MainTitle: React.FC<MainTitleProps> = ({ text = "(gened)ate" }) => {
       style={{
         fontSize: "175px",
         fontWeight: "bold",
-        background: `linear-gradient(to right, #00C2FF 48%, #CC00FF 36%)`,
+        background: `linear-gradient(to right, #FFBBBB 48%, #A9F1DF 36%)`,
       }}
     >
       {text}
