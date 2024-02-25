@@ -21,10 +21,78 @@ CORS(app)
 @app.route('/pages')
 def get_class():
     
+    df = pd.read_csv("FinalDF.csv")
+
+    # Target keywords
+    target_keywords = ["race"]
+
+        # Initialize Rake for keyword extraction
+    r = Rake()
+
+    df["Similarity Score"] = ""
+
+    # Function to find synonyms of a word using WordNet
+    def find_synonyms(word):
+        synonyms = set()
+        for synset in wn.synsets(word):
+            for lemma in synset.lemmas():
+                synonyms.add(lemma.name().lower())
+        return synonyms
+
+    # Preprocess the keywords and text
+    #stop_words = set(stopwords.words('english'))
+    stemmer = SnowballStemmer('english')
+
+# Preprocessed target keywords
+    preprocessed_target_keywords = [stemmer.stem(word.lower())[:5] for word in target_keywords]
+
+    for i in range(df.shape[0]):
+        text = df.at[i, 'Description']
+
+        # Extract keywords from the text using RAKE
+        r.extract_keywords_from_text(text)
+        rake_keywords = r.get_ranked_phrases()    
+
+        # Preprocessed RAKE keywords
+        preprocessed_rake_keywords = []
+        for keyword in rake_keywords:
+            preprocessed_rake_keywords.extend([stemmer.stem(word.lower())[:5] for word in word_tokenize(keyword) ])
+
+    # Expand keyword list with synonyms
+        expanded_keywords = set(preprocessed_rake_keywords)
+        for keyword in preprocessed_rake_keywords:
+            synonyms = find_synonyms(keyword)
+            synonyms = [stemmer.stem(synonym)[:5] for synonym in synonyms]
+            expanded_keywords.update(synonyms)
+
+    #Preprocess the text
+        preprocessed_text = [stemmer.stem(word.lower())[:5] for word in word_tokenize(text) ]
+
+    # Create vectors for the text and target keywords
+        text_vector = np.array([word in preprocessed_text for word in expanded_keywords], dtype=int)
+        target_vector = np.array([word in preprocessed_target_keywords for word in expanded_keywords], dtype=int)
+
+    # Reshape vectors for compatibility
+        text_vector = text_vector.reshape(1, -1)
+        target_vector = target_vector.reshape(1, -1)
+
+    # Calculate the cosine similarity between the text vector and the target keywords vector
+        similarity = cosine_similarity(text_vector, target_vector)[0][0]
+
+    # print("Cosine Similarity Score for the entire text:", similarity)
+        df.at[i, 'Similarity Score'] = similarity
+
+
+    df = df.loc[~(df['Similarity Score'] == 0)]
+    df =df.sort_values('Similarity Score', ascending=False)
+    df = df.drop_duplicates('Name')
+    df = df.head(1)
+
+    df = df.drop(['Similarity Score', 'Unnamed: 0', 'Year', 'Term', 'Subject', 'Number', 'Start Time', 'End Time', 'Days of Week'], axis=1)
+
+    json = df.to_json()
     # Returning an api for showing in  reactjs
-    return {
-        "month":x, 
-        } 
+    return json
 
 
 # Running app
