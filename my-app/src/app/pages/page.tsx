@@ -23,7 +23,7 @@ const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
         <p className="flex-1">{classInfo.description}</p>
         <p className="mt-2">Average GPA: {classInfo.averageGPA.toFixed(2)}</p>
         <p>Professor: {classInfo.professorName}</p>
-        <a href={classInfo.link} className="mt-4 text-blue-400 hover:text-blue-600">More Info</a>
+        <a href={classInfo.link} className="mt-4 text-blue-400 hover:text-blue-600">What others are saying:</a>
       </div>
     </div>
   );
