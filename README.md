@@ -1,4 +1,4 @@
-## GENEDator
+## GENEDate
 **Hackillinois '24**
 
 
