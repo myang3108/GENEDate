@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-type ClassInfo2 = {
+type ClassInfo = {
   name: string;
   description: string;
   Credit_Hours: string;
@@ -15,11 +15,7 @@ type ClassInfo2 = {
   link: string;
 };
 
-type ClassInfo = {
-  date: string;
-};
-
-const ClassTile: React.FC<{ classInfo: ClassInfo2 }> = ({ classInfo }) => {
+const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
   return (
     <div className="m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#EA8D8D] to-[#A890FE] shadow-lg">
       <div className="flex flex-col justify-between h-full p-4 rounded-lg bg-[#1a1a1a] text-white">
@@ -39,15 +35,26 @@ const ClassTile: React.FC<{ classInfo: ClassInfo2 }> = ({ classInfo }) => {
 };
 
 const ClassInfoPage: React.FC = () => {
-  const [classInfos, setClassInfos] = useState<ClassInfo2[]>([]);
+  const [classInfo, setClassInfo] = useState<ClassInfo>({
+    name: '',
+    description: '',
+    Credit_Hours: '',
+    Degree_Attributes: '',
+    Type: '',
+    Instructors: '',
+    Class: '',
+    ProfRating: '',
+    averageGPA: 0,
+    link: ''
+  });
   //const [month, setMonth] = useState("loading");
   useEffect(() => {
     // Replace 'http://your-api-endpoint/classes' with the Flask endpoint
     fetch("http://127.0.0.1:8080/pages")
       .then((response) => response.json())
       .then((data) => {
-        setClassInfos(data.classInfos);
-        console.log(data.classInfos);
+        setClassInfo(data);
+        console.log(data);
       })
       .catch((error) =>
         console.error(
@@ -69,13 +76,14 @@ const ClassInfoPage: React.FC = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {classInfos.map((classInfo) => (
             <ClassTile key={classInfo.Class} classInfo={classInfo} />
-          ))}
+          
         </div>
       </div>
       <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-[#1a1a1a]"></div>
     </div>
+    
+   //<div>{classInfo.name}</div>
   );
 };
 

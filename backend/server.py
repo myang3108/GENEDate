@@ -24,7 +24,7 @@ def get_class():
     df = pd.read_csv("FinalDF.csv")
 
     # Target keywords
-    target_keywords = ["race"]
+    target_keywords = ["asian"]
 
         # Initialize Rake for keyword extraction
     r = Rake()
@@ -90,7 +90,7 @@ def get_class():
 
     df = df.drop(['Similarity Score', 'Unnamed: 0', 'Year', 'Term', 'Subject', 'Number', 'Start Time', 'End Time', 'Days of Week'], axis=1)
 
-    json = df.to_json()
+    json = {'name': df["Name"].iloc[0], 'description': df["Description"].iloc[0], 'Credit_Hours': df["Credit Hours"].iloc[0], 'Degree_Attributes': df["Degree Attributes"].iloc[0], 'Type': df["Type"].iloc[0], 'Instructors': df["Instructors"].iloc[0], 'Class': df["Class"].iloc[0], 'ProfRating': df["ProfRating"].iloc[0], 'averageGPA': df["GPA"].iloc[0], 'link': df["Reddit_Links"].iloc[0]}
     # Returning an api for showing in  reactjs
     return json
 
