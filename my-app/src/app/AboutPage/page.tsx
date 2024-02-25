@@ -3,14 +3,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LinksPage from "../pages/page";
-
+import BackButton from "../components/BackButton";
+import lebron from "../images/lebron.png";
+import michael from "../images/michael_ss.jpg";
+import jerry from "../images/jerry.jpg";
 const aboutus: React.FC = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="h-full overflow-hidden flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none"></div>
       </div>
-
       {/*
           title 
       */}
@@ -21,16 +23,77 @@ const aboutus: React.FC = () => {
           </span>
         </h1>
       </div>
-
-      <div className="max-w-4xl mx-auto p-5">
-        <h1 className="text-4xl font-bold text-center mb-4">About Me</h1>
-        <p className="text-lg text-gray-700">
-          Hello! I'm Michael Yang, a Freshman in Computer Engineering! I hope
-          you like our project.
-        </p>
-        {/* Add more personal details or sections as needed */}
+      <div>
+        <div className="fixed top-0 right-0 p-7">
+          <BackButton />
+        </div>
       </div>
+      {/* 4 cards */}
+      <div className="flex justify-around">
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img className="rounded-t-lg" src={michael.src} alt="" />
+          </a>
+          <div className="p-5">
+            <a href="#">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Michael Yang
+              </h5>
+            </a>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Floor general, shifty, deadly 3-pt shot.
+            </p>
+          </div>
+        </div>
 
+        <div className="flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="flex flex-col items-center h-1/2 p-8 bg-white shadow-md">
+            <a href="#">
+              <img className="rounded-t-lg" src={michael.src} alt="" />
+            </a>
+          </div>
+
+          <div className="h-1/12"></div>
+
+          <div className="flex flex-col items-center h-1/2 p-8 bg-white shadow-md">
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Floor general, shifty, deadly 3-pt shot.
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://www.linkedin.com/in/jerryluo-/">
+            <img className="rounded-t-lg" src={jerry.src} alt="" />
+          </a>
+          <div className="p-5">
+            <a href="https://www.linkedin.com/in/jerryluo-/">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Jerry Luo
+              </h5>
+            </a>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              The GOAT.
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="https://www.linkedin.com/in/jerryluo-/">
+            <img className="rounded-t-lg" src={jerry.src} alt="" />
+          </a>
+          <div className="p-5">
+            <a href="https://www.linkedin.com/in/jerryluo-/">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Jerry Luo
+              </h5>
+            </a>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              The GOAT.
+            </p>
+          </div>
+        </div>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/links" Component={LinksPage} />
