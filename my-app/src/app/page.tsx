@@ -12,7 +12,7 @@ import InputBar from "./components/InputBar";
 import InputBarParent from "./components/InputBarParent";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Link from 'next/link';
-import aboutus from "./pages/aboutus";
+import aboutus from "./AboutPage/page";
 import { useCallback } from "react";
 import LinksPage from "./pages/page";
 
