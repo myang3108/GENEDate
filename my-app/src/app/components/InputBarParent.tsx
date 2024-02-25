@@ -23,8 +23,8 @@ const handleButtonClick = (event?: React.MouseEvent<HTMLAnchorElement>) => {
 };
   return (
     <div style={{ display: "flex", alignItems: "flex-start" }}>
-      <InputBar placeholder="Keywords:" onUpdate={setInputValue} />
-      <div style={{ marginLeft: "8px" }}>
+      <InputBar placeholder="Enter Keywords:" onUpdate={setInputValue} />
+      <div style={{ marginLeft: "15px" }}>
         <Go onClick={handleButtonClick} /> {/* No changes needed here */}
       </div>
     </div>
