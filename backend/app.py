@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from flask_session import Session  # Corrected import
+from flask_session import Session
 import os
 
 app = Flask(__name__)
@@ -11,7 +11,6 @@ CORS(app)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'super secret key'
 Session(app)  # Initialize the session for the app
-
 
 # Database configuration
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -27,8 +26,6 @@ class DataEntry(db.Model):
 
     def __repr__(self):
         return f'<DataEntry {self.data}>'
-
-db.create_all()
 
 # Routes
 @app.route('/calculate', methods=['POST'])
@@ -59,4 +56,6 @@ def get_session_data():
     return f'Session data: {value}'
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
