@@ -30,9 +30,13 @@ const aboutus: React.FC = () => {
       </div>
       {/* 4 cards */}
       <div className="flex justify-around">
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="max-w-sm overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-            <img className="rounded-t-lg" src={michael.src} alt="" />
+            <img
+              className="rounded-t-lg w-full h-32 object-cover object-center"
+              src={michael.src}
+              alt=""
+            />
           </a>
           <div className="p-5">
             <a href="#">
@@ -46,16 +50,20 @@ const aboutus: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex-col max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div className="flex flex-col items-center h-1/2 p-8 bg-white shadow-md">
+        <div className="max-w-sm overflow-hidden bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              className="rounded-t-lg w-full h-32 object-cover object-center"
+              src={michael.src}
+              alt=""
+            />
+          </a>
+          <div className="p-5">
             <a href="#">
-              <img className="rounded-t-lg" src={michael.src} alt="" />
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Michael Yang
+              </h5>
             </a>
-          </div>
-
-          <div className="h-1/12"></div>
-
-          <div className="flex flex-col items-center h-1/2 p-8 bg-white shadow-md">
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               Floor general, shifty, deadly 3-pt shot.
             </p>
@@ -64,7 +72,11 @@ const aboutus: React.FC = () => {
 
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="https://www.linkedin.com/in/jerryluo-/">
-            <img className="rounded-t-lg" src={jerry.src} alt="" />
+            <img
+              className="rounded-t-lg w-full h-32 object-cover object-center"
+              src={jerry.src}
+              alt=""
+            />
           </a>
           <div className="p-5">
             <a href="https://www.linkedin.com/in/jerryluo-/">
@@ -80,7 +92,11 @@ const aboutus: React.FC = () => {
 
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="https://www.linkedin.com/in/jerryluo-/">
-            <img className="rounded-t-lg" src={jerry.src} alt="" />
+            <img
+              className="rounded-t-lg w-full h-32 object-cover object-center"
+              src={jerry.src}
+              alt=""
+            />
           </a>
           <div className="p-5">
             <a href="https://www.linkedin.com/in/jerryluo-/">
