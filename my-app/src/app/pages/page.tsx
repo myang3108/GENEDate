@@ -18,12 +18,15 @@ type ClassInfo = {
 
 const ClassTile: React.FC<{ classInfo: ClassInfo }> = ({ classInfo }) => {
   return (
-    <div className="m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#EA8D8D] to-[#A890FE] shadow-lg">
+    <div className="block m-4 p-1 rounded-lg overflow-hidden bg-gradient-to-br from-[#EA8D8D] to-[#A890FE] shadow-lg">
       <div className="flex flex-col justify-between h-full p-6 rounded-lg bg-[#1a1a1a] text-white">
         <h2 className="text-xl font-bold mb-2">{classInfo.name}</h2>
         <p className="flex-1">{classInfo.description}</p>
-        <p className="mt-2">Average GPA: {classInfo.averageGPA.toFixed(2)}</p>
-        <p>Professor: {classInfo.Instructors}</p>
+        <br></br>
+        <p>Average GPA: {classInfo.averageGPA.toFixed(2)}</p>
+        <p>Professor: {classInfo.Instructors} | Rating: {classInfo.ProfRating}</p>
+        <p >Degree Attributes: {classInfo.Degree_Attributes}</p>
+        <p >Credit Hours: {classInfo.Credit_Hours}</p>
         <a
           href={classInfo.link}
           className="mt-4 text-blue-400 hover:text-blue-600"
@@ -75,7 +78,7 @@ const ClassInfoPage: React.FC = () => {
           </span>
           </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex justify-center items-center">
             <ClassTile key={classInfo.Class} classInfo={classInfo} />
           
         </div>
