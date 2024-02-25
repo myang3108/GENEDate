@@ -12,7 +12,7 @@ const handleButtonClick = (event?: React.MouseEvent<HTMLAnchorElement>) => {
   // event?.preventDefault();
 
   console.log("Button clicked with value:", inputValue);
-  axios.post("http://localhost:3000/calculate", { data: inputValue })
+  axios.post("http://127.0.0.1:8080/calculate", { inputdata: inputValue })
     .then((response) => {
       console.log(response.data);
       // Handle response
