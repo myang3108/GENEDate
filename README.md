@@ -37,7 +37,7 @@ On a technical level, we learned how to build robust web applications and interf
 Although we accomplished a lot over the last 36 hours, we still have many ideas that we hope to implement in the future. We want to begin by expanding the number of GenEd classes we recommend from one to three so students have a greater variety in choice. We also want to increase the accuracy of our NLP model by incorporating student reviews from Reddit into our descriptions. These reviews will better represent a class's difficulty and student’s true experiences. Lastly, we hope to continue to improve our UI, by implementing better load times and a simpler layout.
 
 
-##Current shortcoming in Course Catalog:
+Current shortcoming in Course Catalog:
 
 
 Key Words: Farming Food
@@ -50,9 +50,12 @@ Key Words: Europe German War
 <img width="1512" alt="Screenshot 2024-02-25 at 5 00 25 AM" src="https://github.com/myang3108/GENEDate/assets/89274680/cb324c6f-1f66-459d-bb3a-3cae75df7ac9">
 
 
+
 Key Words: Social Science Psychology Human
 
 <img width="1512" alt="Screenshot 2024-02-25 at 5 00 57 AM" src="https://github.com/myang3108/GENEDate/assets/89274680/cba0c974-4b6a-4481-8214-571d836f1218">
+
+
 
 
 
