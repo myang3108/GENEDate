@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import datetime
 from flask_cors import CORS
 import pandas as pd
@@ -10,22 +10,31 @@ from nltk.stem import SnowballStemmer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from rake_nltk import Rake
-
+string1 = "Aman"
 x = datetime.datetime.now()
- 
 # Initializing flask app
 app = Flask(__name__)
 CORS(app)
  
+@app.route('/calculate',  methods=['POST'])
+def get_string():
+    print("calculate")
+    global user_string
+    user_string = request.json.get('inputdata')
+    string1 = user_string
+    print(user_string)
+    return 'Input received successfully'
+
 # Route for seeing a data
 @app.route('/pages')
 def get_class():
-    
+    print(string1)
+    print("got into the function")
     df = pd.read_csv("FinalDF.csv")
-
+    
     # Target keywords
-    target_keywords = ["asian"]
-
+    target_keywords = user_string.split(" ")
+    print(target_keywords)
         # Initialize Rake for keyword extraction
     r = Rake()
 
